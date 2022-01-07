@@ -1,0 +1,18 @@
+name: nuget-server
+replicaCount: 1
+containerPort: 80
+image:
+  repository: micacr.azurecr.cn/images/nugetserver
+  tag: v1.1
+  pullPolicy: IfNotPresent
+imagePullSecrets: []
+service:
+  port: 5005
+  targetPort: 80
+  type: ClusterIP
+ingress:
+  enabled: false
+  hosts:
+    - host: ""
+      paths: 
+        - /

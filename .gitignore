@@ -1,0 +1,3 @@
+src/Nuget.Server.Web/Nuget.Server.Web/bin/*
+src/Nuget.Server.Web/Nuget.Server.Web/obj/*
+src/Nuget.Server.Web/.vs/*
