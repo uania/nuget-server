@@ -3,7 +3,7 @@ replicaCount: 1
 containerPort: 80
 image:
   repository: micacr.azurecr.cn/images/nugetserver
-  tag: v1.1
+  tag: "v1.1"
   pullPolicy: IfNotPresent
 imagePullSecrets: []
 service:
