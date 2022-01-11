@@ -1,0 +1,17 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nugetserver
+spec:
+  rules:
+  - host: 139.217.100.118/nuget
+    http:
+      paths:
+      - path: /nuget
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: nugetserver
+            port: 
+              number: 80 
