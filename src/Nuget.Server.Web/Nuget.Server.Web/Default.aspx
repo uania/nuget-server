@@ -6,42 +6,36 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title>NuGet Private Repository</title>
+    <title>ARC NuGet Hub</title>
     <style>
         body { font-family: Calibri; }
     </style>
 </head>
 <body>
     <div>
-        <h2>You are running NuGet.Server v<%= typeof(NuGetODataConfig).Assembly.GetName().Version %></h2>
+        <h2>欢迎来到 ARC Nuget Hub v<%= typeof(NuGetODataConfig).Assembly.GetName().Version %></h2>
         <p>
-            Click <a href="<%= VirtualPathUtility.ToAbsolute("~/nuget/Packages") %>">here</a> to view your packages.
+            点击 <a href="<%= VirtualPathUtility.ToAbsolute("~/nuget/Packages") %>">这里</a> 查看nuget信息。
         </p>
         <fieldset style="width:800px">
             <legend><strong>Repository URLs</strong></legend>
-            In the package manager settings, add the following URL to the list of 
-            Package Sources:
+            在nuget包管理设置中，将下面的地址添加到包源。
             <blockquote>
                 <strong><%= Helpers.GetRepositoryUrl(Request.Url, Request.ApplicationPath) %></strong>
             </blockquote>
-            <% if (string.IsNullOrEmpty(ConfigurationManager.AppSettings["apiKey"])) { %>
-            To enable pushing packages to this feed using the <a href="https://www.nuget.org/downloads">NuGet command line tool</a> (nuget.exe), set the <code>apiKey</code> appSetting in web.config.
-            <% } else { %>
-            Use the command below to push packages to this feed using the <a href="https://www.nuget.org/downloads">NuGet command line tool</a> (nuget.exe).
+            去往 <a href="https://www.nuget.org/downloads">NuGet command line tool</a> (nuget.exe)下载NuGet tool，使用下面命令将nuget包推送到服务.
             <blockquote>
                 <strong>nuget.exe push {package file} {apikey} -Source <%= Helpers.GetPushUrl(Request.Url, Request.ApplicationPath) %></strong>
             </blockquote>
-            <% } %> 
         </fieldset>
 
         <% if (Request.IsLocal || ServiceResolver.Current.Resolve<NuGet.Server.Core.Infrastructure.ISettingsProvider>().GetBoolSetting("allowRemoteCacheManagement", false)) { %>
         <fieldset style="width:800px">
-            <legend><strong>Adding packages</strong></legend>
+            <legend><strong>添加 nuget packages</strong></legend>
 
-            To add packages to the feed put package files (.nupkg files) in the folder
-            <code><% = PackageUtility.PackagePhysicalPath %></code><br/><br/>
+            上传nuget包到Azure共享存储 nuget share，
 
-            Click <a href="<%= VirtualPathUtility.ToAbsolute("~/nuget/clear-cache") %>">here</a> to clear the package cache.
+            点击 <a href="<%= VirtualPathUtility.ToAbsolute("~/nuget/clear-cache") %>">这里</a> 清除缓存。
         </fieldset>
         <% } %>
     </div>
