@@ -20,9 +20,9 @@ spec:                            #是当前Deployment的规格说明
         - name: http
           containerPort: 80
         volumeMounts:
-          - name: azure-nuget-packages
+          - name: nuget-packages
             mountPath: /home/nugets
       volumes:
-      - name: azure-nuget-packages
+      - name: nuget-packages
         persistentVolumeClaim:
           claimName: nuget-packages
