@@ -2,7 +2,8 @@ FROM mono:6.12.0.122
 
 MAINTAINER yifan <yifan.liu@anruidigital.com>
 
-ENV APP_WORKDIR=/app
+ENV APP_WORKDIR=/app/web
+ENV LANG C.UTF-8
 
 # Create workDir
 RUN mkdir -p $APP_WORKDIR
