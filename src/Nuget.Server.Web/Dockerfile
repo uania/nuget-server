@@ -6,7 +6,7 @@ ENV APP_WORKDIR=/app
 
 # Create workDir
 RUN mkdir -p $APP_WORKDIR
-
+RUN mkdir -p /home/nugets
 # Put Init File into image
 ADD init.sh /usr/local/bin/init.sh
 ADD start-nginx.sh /usr/local/bin/start-nginx.sh
@@ -29,7 +29,7 @@ RUN chmod a+x /usr/local/bin/dumb-init
 # Put nginx default
 ADD config/default /etc/nginx/sites-available/
 # Put Web
-ADD Nuget.Server.Web $APP_WORKDIR
+ADD "./Nuget.Server.Web/" $APP_WORKDIR
 
 # Define fastcgi_params
 RUN sed -i '$a fastcgi_param  PATH_INFO   \"\";' /etc/nginx/fastcgi_params
@@ -44,4 +44,5 @@ WORKDIR $APP_WORKDIR
 # Define Volume
 VOLUME $APP_WORKDIR
 
-ENTRYPOINT ["/usr/local/bin/init.sh"]
+#CMD ["ls", "-ll /usr/local/bin"]
+ENTRYPOINT ["/usr/local/bin/init.sh"] 
