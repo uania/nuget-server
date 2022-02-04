@@ -4,6 +4,7 @@ MAINTAINER yifan <yifan.liu@anruidigital.com>
 
 ENV APP_WORKDIR=/app/web
 ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
 
 # Create workDir
 RUN mkdir -p $APP_WORKDIR
@@ -23,7 +24,7 @@ RUN mkdir -p /etc/mono/registry /etc/mono/registry/LocalMachine
 # RUN wget --ca-directory=/etc/ssl/certs -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.0.0/dumb-init_1.0.0_amd64 
 ADD dumb-init_1.0.0_amd64 /usr/local/bin/dumb-init
 RUN chmod a+x /usr/local/bin/dumb-init
-
+RUN export MONO_EXTERNAL_ENCODINGS="utf8:gbk"
 #ENV PKG_CONFIG_PATH /usr/lib/pkgconfig
 
 
