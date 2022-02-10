@@ -6,14 +6,14 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title>NuGet Private Repository</title>
+    <title>ARC NuGet Private Repository</title>
     <style>
         body { font-family: Calibri; }
     </style>
 </head>
 <body>
     <div>
-        <h2>You are running NuGet.Server v<%= typeof(NuGetODataConfig).Assembly.GetName().Version %></h2>
+        <h2>Welcome to ARC NuGet.Server v<%= typeof(NuGetODataConfig).Assembly.GetName().Version %></h2>
         <p>
             Click <a href="<%= VirtualPathUtility.ToAbsolute("~/nuget/Packages") %>">here</a> to view your packages.
         </p>
