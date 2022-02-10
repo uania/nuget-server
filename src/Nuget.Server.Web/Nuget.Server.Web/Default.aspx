@@ -14,6 +14,7 @@
 <body>
     <div>
         <h2>Welcome to ARC NuGet.Server v<%= typeof(NuGetODataConfig).Assembly.GetName().Version %></h2>
+	    <h3>中文说明</h3>
         <p>
             Click <a href="<%= VirtualPathUtility.ToAbsolute("~/nuget/Packages") %>">here</a> to view your packages.
         </p>
