@@ -15,7 +15,7 @@ spec:                            #是当前Deployment的规格说明
     spec:                        #当前pod的规格说明
       containers:                #容器
       - name: nugetserver              #是容器的名字容器名字是必须填写的
-        image: micacr.azurecr.cn/images/nugetserver:v2.0      #镜像 镜像的名字和版本
+        image: micacr.azurecr.cn/images/nugetserver:v2.2      #镜像 镜像的名字和版本
         ports:
         - name: http
           containerPort: 80

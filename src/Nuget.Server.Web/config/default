@@ -2,6 +2,7 @@ server {
         listen <NGINX_PORT>;
         root <APP_WORKDIR>;
         charset utf-8;
+        client_max_body_size 100M;
     # server_name _;
 
     index index.html default.html index.aspx default.aspx;
