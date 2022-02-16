@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nuget-env
+data:
+  ApiKey: "!arc@cdb"
+  Storage__Type: FileSystem
+  Storage__Path: /home/nugets/packages
+  Database__Type: Sqlite
+  Database__ConnectionString: Data Source=/home/nugets/baget.db
+  Search__Type: Database
